@@ -47,6 +47,6 @@ customerSchema.pre("save", function (next) {
 
 customerSchema.methods.comparePassword = function (candidatePassword, cb) {};
 
-const CustomerModel = mongoose.model("Customer", customerSchema);
+// const CustomerModel = mongoose.model("Customer", customerSchema);
 
 module.exports = CustomerModel;
