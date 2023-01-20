@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { userSignupValidator } = require("../validator");
 // const { check } = require("express-validator");
 const { check, body, validationResult } = require("express-validator");
 

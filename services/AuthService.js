@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const expressJwt = require("express-jwt");
 const bcrypt = require("bcrypt");
 const customerModel = require("../models/CustomerModel.js");
-// const { comparePassword  = require("../models/CustomerModel.js");
 
 var expressValidator = require("express-validator");
 
@@ -99,9 +98,3 @@ exports.isAuth = (req, res, next) => {
   }
   next();
 };
-
-exports.requireSignin = expressJwt({
-  secret: "aveiheislkcmalxjoqieqAPOi3tu45thhijsjsvfdnvlfdvowdpwip2",
-  algorithms: ["HS256"],
-  userProperty: "auth",
-});
