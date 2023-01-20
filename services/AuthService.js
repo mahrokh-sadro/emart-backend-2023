@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 // const expressJwt = require("express-jwt");
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const customerModel = require("../models/CustomerModel.js");
 
 exports.signup = (req, res) => {
@@ -44,26 +44,26 @@ exports.signin = (req, res) => {
       return res.status(400).json({
         error: "User with that email does not exist. Please signup",
       });
-      // } else {
-      //   bcrypt.compare(password, user.password).then((isMatched) => {
-      //     if (!isMatched) {
-      //       return res.status(401).json({
-      //         error: "Email and password dont match",
-      //       });
-      //     } else {
-      //       const token = jwt.sign(
-      //         { _id: user._id, role: user.role },
-      //         "aveiheislkcmalxjoqieqAPOi3tu45thhijsjsvfdnvlfdvowdpwip2"
-      //       );
-      //       res.cookie("token", token, { expire: new Date() + 9999 });
-      //       const { _id, firstName, lastName, email, role } = user;
+    } else {
+      bcrypt.compare(password, user.password).then((isMatched) => {
+        if (!isMatched) {
+          return res.status(401).json({
+            error: "Email and password dont match",
+          });
+        } else {
+          const token = jwt.sign(
+            { _id: user._id, role: user.role },
+            "aveiheislkcmalxjoqieqAPOi3tu45thhijsjsvfdnvlfdvowdpwip2"
+          );
+          res.cookie("token", token, { expire: new Date() + 9999 });
+          const { _id, firstName, lastName, email, role } = user;
 
-      //       return res.json({
-      //         token,
-      //         user: { _id, firstName, lastName, email, role },
-      //       });
-      //     }
-      //   });
+          return res.json({
+            token,
+            user: { _id, firstName, lastName, email, role },
+          });
+        }
+      });
     }
   });
 };
