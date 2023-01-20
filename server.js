@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", AuthController);
-app.use("/", customersController);
+// app.use("/", customersController);
 
 app.use("*", (req, res) => {
   res.status(404).json({

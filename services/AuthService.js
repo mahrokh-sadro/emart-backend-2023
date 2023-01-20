@@ -1,5 +1,3 @@
-const customerModel = require("../models/CustomerModel.js");
-
 exports.signup = (req, res) => {};
 
 exports.signin = (req, res) => {};
