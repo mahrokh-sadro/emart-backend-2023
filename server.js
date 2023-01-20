@@ -1,9 +1,5 @@
 const express = require("express");
 
-const customersController = require("./controllers/CustomersController.js");
-const productsController = require("./controllers/ProductsController.js");
-const AuthController = require("./controllers/AuthController.js");
-
 const app = express();
 
 //retirieve
@@ -12,10 +8,6 @@ app.get("/", (req, res) => {
     message: "main page",
   });
 });
-
-app.use("/auth", AuthController);
-app.use("/products", productsController);
-app.use("/", customersController);
 
 app.use("*", (req, res) => {
   res.status(404).json({
