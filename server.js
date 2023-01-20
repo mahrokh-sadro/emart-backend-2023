@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 
 // const customersController = require("./controllers/CustomersController.js");
 // const productsController = require("./controllers/ProductsController.js");
-const AuthController = require("./controllers/AuthController.js");
+// const AuthController = require("./controllers/AuthController.js");
 
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config({ path: "config/keys.env" });
@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/auth", AuthController);
+// app.use("/auth", AuthController);
 // app.use("/products", productsController);
 // app.use("/", customersController);
 
