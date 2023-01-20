@@ -1,11 +1,10 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-// const expressValidator = require("express-validator");
 
 const customersController = require("./controllers/CustomersController.js");
 const productsController = require("./controllers/ProductsController.js");
@@ -60,13 +59,13 @@ const MONGO_DB_CONNECTION_STRING = `mongodb+srv://661370:661370@cluster0.8i4ns.m
 
 app.listen(HTTP_PORT, () => {
   console.log(`app listening on `);
-  mongoose.set("strictQuery", false);
-  mongoose
-    .connect(MONGO_DB_CONNECTION_STRING)
-    .then(() => {
-      console.log("connected to db " + HTTP_PORT);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  // mongoose.set("strictQuery", false);
+  // mongoose
+  //   .connect(MONGO_DB_CONNECTION_STRING)
+  //   .then(() => {
+  //     console.log("connected to db " + HTTP_PORT);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 });
