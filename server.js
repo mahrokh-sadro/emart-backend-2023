@@ -60,7 +60,7 @@ const MONGO_DB_CONNECTION_STRING = `mongodb+srv://661370:661370@cluster0.8i4ns.m
 
 app.listen(HTTP_PORT, () => {
   console.log(`app listening on `);
-
+  mongoose.set("strictQuery", false);
   mongoose
     .connect(MONGO_DB_CONNECTION_STRING)
     .then(() => {
