@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const customersController = require("./controllers/CustomersController.js");
-// const productsController = require("./controllers/ProductsController.js");
+const productsController = require("./controllers/ProductsController.js");
 const AuthController = require("./controllers/AuthController.js");
 
 if (process.env.NODE_ENV != "production") {
@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", AuthController);
-// app.use("/products", productsController);
+app.use("/products", productsController);
 app.use("/", customersController);
 
 app.use("*", (req, res) => {
