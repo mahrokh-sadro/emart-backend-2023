@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
+const MONGO_DB_CONNECTION_STRING = `mongodb+srv://661370:661370@cluster0.8i4ns.mongodb.net/ShopCartDB?retryWrites=true&w=majority`;
 
 //retirieve
 app.get("/", (req, res) => {
@@ -22,7 +23,7 @@ app.listen(HTTP_PORT, () => {
   console.log(`app listening on `);
 
   mongoose
-    .connect(process.env.MONGO_DB_CONNECTION_STRING)
+    .connect(MONGO_DB_CONNECTION_STRING)
     .then(() => {
       console.log("connected to db " + HTTP_PORT);
     })
