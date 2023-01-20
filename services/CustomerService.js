@@ -1,5 +1,5 @@
 const CustomerModel = require("../models/CustomerModel.js");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 exports.userById = (req, res, next, id) => {
   CustomerModel.findById(id).exec((err, user) => {

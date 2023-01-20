@@ -1,10 +1,10 @@
 const express = require("express");
 // const mongoose = require("mongoose");
-const cors = require("cors");
-const morgan = require("morgan");
+// const cors = require("cors");
+// const morgan = require("morgan");
 
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+// const bodyParser = require("body-parser");
+// const cookieParser = require("cookie-parser");
 
 const customersController = require("./controllers/CustomersController.js");
 const productsController = require("./controllers/ProductsController.js");
@@ -32,10 +32,10 @@ const app = express();
 // };
 
 //middleware
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 // app.use(cors(corsOptionsDelegate));
-app.use(bodyParser.json());
-app.use(cookieParser());
+// app.use(bodyParser.json());
+// app.use(cookieParser());
 
 //retirieve
 app.get("/", (req, res) => {
