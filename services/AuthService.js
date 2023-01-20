@@ -1,9 +1,7 @@
 const jwt = require("jsonwebtoken");
-const expressJwt = require("express-jwt");
+// const expressJwt = require("express-jwt");
 const bcrypt = require("bcrypt");
 const customerModel = require("../models/CustomerModel.js");
-
-var expressValidator = require("express-validator");
 
 exports.signup = (req, res) => {
   const { firstName, lastName, email, password } = req.body;
