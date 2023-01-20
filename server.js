@@ -15,25 +15,25 @@ if (process.env.NODE_ENV != "production") {
 }
 const app = express();
 
-const corsOptionsDelegate = function (req, callback) {
-  const allowlist = [
-    `http://localhost:3000`,
-    "http://127.0.0.1:3000",
-    "https://eemart.netlify.app",
-    "http://eemart.netlify.app",
-  ];
-  let corsOptions;
-  if (allowlist.indexOf(req.header("Origin")) !== -1) {
-    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false }; // disable CORS for this request
-  }
-  callback(null, corsOptions); // callback expects two parameters: error and options
-};
+// const corsOptionsDelegate = function (req, callback) {
+//   const allowlist = [
+//     `http://localhost:3000`,
+//     "http://127.0.0.1:3000",
+//     "https://eemart.netlify.app",
+//     "http://eemart.netlify.app",
+//   ];
+//   let corsOptions;
+//   if (allowlist.indexOf(req.header("Origin")) !== -1) {
+//     corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+//   } else {
+//     corsOptions = { origin: false }; // disable CORS for this request
+//   }
+//   callback(null, corsOptions); // callback expects two parameters: error and options
+// };
 
 //middleware
 app.use(morgan("dev"));
-app.use(cors(corsOptionsDelegate));
+// app.use(cors(corsOptionsDelegate));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
