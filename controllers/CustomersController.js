@@ -3,12 +3,7 @@ const express = require("express");
 const router = express.Router();
 const { isAuth, isAdmin } = require("../services/AuthService.js");
 
-const {
-  userById,
-  read,
-  update,
-  purchaseHistory,
-} = require("../services/CustomerService.js");
+const { userById, read, update } = require("../services/CustomerService.js");
 
 router.get("/secret/:userId", isAuth, isAdmin, (req, res) => {
   res.json({
