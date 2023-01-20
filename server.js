@@ -7,11 +7,9 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 // const expressValidator = require("express-validator");
 
-// const customersController = require("./controllers/CustomersController.js");
-// const productsController = require("./controllers/ProductsController.js");
-// const AuthController = require("./controllers/AuthController.js");
-// const BraintreeController = require("./controllers/BraintreeController.js");
-// const OrderController = require("./controllers/OrderController.js");
+const customersController = require("./controllers/CustomersController.js");
+const productsController = require("./controllers/ProductsController.js");
+const AuthController = require("./controllers/AuthController.js");
 
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config({ path: "config/keys.env" });
@@ -47,12 +45,9 @@ app.get("/", (req, res) => {
   });
 });
 
-// app.use("/auth", AuthController);
-// app.use("/products", productsController);
-// app.use("/", customersController);
-// app.use("/braintree", BraintreeController);
-// app.use("/order", OrderController);
-// app.use("/customers", orderController);
+app.use("/auth", AuthController);
+app.use("/products", productsController);
+app.use("/", customersController);
 
 app.use("*", (req, res) => {
   res.status(404).json({
