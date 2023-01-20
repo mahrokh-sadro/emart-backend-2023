@@ -61,12 +61,13 @@ app.use("*", (req, res) => {
 });
 
 const HTTP_PORT = process.env.PORT || 5000;
+const MONGO_DB_CONNECTION_STRING = `mongodb+srv://661370:661370@cluster0.8i4ns.mongodb.net/ShopCartDB?retryWrites=true&w=majority`;
 
 app.listen(HTTP_PORT, () => {
   console.log(`app listening on `);
 
   mongoose
-    .connect(process.env.MONGO_DB_CONNECTION_STRING)
+    .connect(MONGO_DB_CONNECTION_STRING)
     .then(() => {
       console.log("connected to db " + HTTP_PORT);
     })
