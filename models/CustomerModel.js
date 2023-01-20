@@ -45,12 +45,7 @@ customerSchema.pre("save", function (next) {
   var user = this;
 });
 
-customerSchema.methods.comparePassword = function (candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
-};
+customerSchema.methods.comparePassword = function (candidatePassword, cb) {};
 
 const CustomerModel = mongoose.model("Customer", customerSchema);
 
